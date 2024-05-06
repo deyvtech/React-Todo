@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-styles {
+        @apply  hover:bg-[#fcaf3c] hover:text-black text-white flex gap-1 items-center bg-[#1D1710] border border-[#fcaf3c] py-1 px-2 rounded-md
+    }
+    .custom-transition {
+        @apply transition-all duration-300 ease-in-out
+    }
+}
+
+.container-checkbox {
+    cursor: pointer;
+}
+
+.container-checkbox input {
+    display: none;
+}
+
+.container-checkbox svg {
+    overflow: visible;
+}
+
+.path {
+    fill: none;
+    stroke: #fcaf3c;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+}
+
+.container-checkbox input:checked~svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+}
