@@ -1,10 +1,10 @@
 import React from "react";
 import noteAdd from "../assets/note-add.svg";
-import { useContext, useState } from "react";
-import { TodoContext } from "../context/TodoContext";
+import { useState } from "react";
+import { useTodo } from "../context/TodoContext";
 
 const AddTodo = () => {
-	const { dispatch } = useContext(TodoContext);
+	const { dispatch } = useTodo();
 	const [todo, setTodo] = useState("");
 
 	const addTodo = (event) => {
