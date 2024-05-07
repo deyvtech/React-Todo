@@ -3,10 +3,10 @@ import TodoList from "../components/TodoList";
 import { useTodo } from "../context/TodoContext";
 
 const TodoContainer = () => {
-	const { todoList, dispatch } = useTodo();
+	const { todoList, dispatch, setEditModal, setId } = useTodo();
 
 	const handleDeleteTodo = (todoId) => {
-		
+
 		dispatch({ type: "DELETE_TODO", payload: todoId });
 	};
 
@@ -14,14 +14,20 @@ const TodoContainer = () => {
 		dispatch({ type: "COMPLETE_TODO", payload: todoId });
 	};
 
+	const handleEditTodo = (todoId) => {
+		setEditModal(prev => !prev)
+		setId(todoId)
+	}
+
 	return (
 		<ul className="w-full  ">
 			{todoList?.map((todo) => (
 				<TodoList
 					todoItem={todo}
 					key={todo.id}
-					onDeleteTodo={handleDeleteTodo}
-					onCompletedTodo={handleCompletedTodo}
+					handleDeleteTodo={handleDeleteTodo}
+					handleCompletedTodo={handleCompletedTodo}
+					handleEditTodo={handleEditTodo}
 				/>
 			))}
 		</ul>
